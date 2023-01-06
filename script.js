@@ -97,9 +97,28 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // Requesting user input
+  entry = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
+
+  // Checks user entry and throws an alert if no input is given
+  if (!entry) {
+      alert("This needs a value");
+
+  } else if (entry < 10 || entry > 64) {
+      // Checks the user has made an input and then prompts user to input a value within the specified range
+      
+      entry = parseInt(prompt("You must choose between 10 and 64"));
+
+  } else {
+      // Continues once user input is within the specified range
+      confirmNumber = confirm("Will this contain numbers?");
+      confirmCharacter = confirm("Will this contain special characters?");
+      confirmUpperCase = confirm("Will this contain Uppercase letters?");
+      confirmLowerCase = confirm("Will this contain Lowercase letters?");
+  };
 
 }
-
+getPasswordOptions();
 // Function for getting a random element from an array
 function getRandom(arr) {
 

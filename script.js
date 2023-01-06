@@ -1,3 +1,10 @@
+// Create User input variables: 
+var entry;
+var confirmNumber;
+var confirmCharacter;
+var confirmUpperCase;
+var confirmLowerCase;
+
 // Array of special characters to be included in password
 var specialCharacters = [
   '@',

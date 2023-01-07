@@ -1,5 +1,5 @@
 // Create User input variables: 
-var entry;
+var confirmLength;
 var confirmNumber;
 var confirmCharacter;
 var confirmUpperCase;
@@ -98,30 +98,40 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   // Requesting user input
-  entry = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
+  confirmLength = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
 
-  // Checks user entry and throws an alert if no input is given
-  if (!entry) {
-      alert("This needs a value");
+  // Checks user entry and throws an alert if input given is not numeric
+  // while (!confirmLength) {
+  //     alert("This needs a value");
+  //     var confirmLength = parseInt(prompt("How many characters would you like your password to contain?"));
+  // }   
+  
+  // Loop if answer is outside the parameters 
+  while (confirmLength < 10 || confirmLength > 64 || !confirmLength) {
+      alert("Password length must be between 10 and 64 characters Try again");
+      var confirmLength = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
+    } 
 
-  } else if (entry < 10 || entry > 64) {
-      // Checks the user has made an input and then prompts user to input a value within the specified range
-      
-      entry = parseInt(prompt("You must choose between 10 and 64"));
-
-  } else {
-      // Continues once user input is within the specified range
-      confirmNumber = confirm("Will this contain numbers?");
-      confirmCharacter = confirm("Will this contain special characters?");
-      confirmUpperCase = confirm("Will this contain Uppercase letters?");
-      confirmLowerCase = confirm("Will this contain Lowercase letters?");
+    // Repeat back how many charactes the user will have  
+    alert(`Your password will have ${confirmLength} characters`);
+  
+  
+  // Continues once user input is within the specified range
+      confirmNumber = confirm("Will this include numbers?");
+      confirmCharacter = confirm("Will this include special characters?");
+      confirmUpperCase = confirm("Will this include Uppercase letters?");
+      confirmLowerCase = confirm("Will this include Lowercase letters?");
   };
 
-}
+
 getPasswordOptions();
 // Function for getting a random element from an array
 function getRandom(arr) {
+      // Loop if answer is outside the parameters 
+      // while(confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false) {
+      //   alert("You must choose at least one parameter");
 
+  if (){}
 }
 
 // Function to generate password with user input

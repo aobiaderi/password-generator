@@ -4,6 +4,7 @@ var confirmNumber;
 var confirmCharacter;
 var confirmUpperCase;
 var confirmLowerCase;
+var userChoices;
 
 // Array of special characters to be included in password
 var specialCharacters = [
@@ -108,11 +109,11 @@ function getPasswordOptions() {
   
   // Loop if answer is outside the parameters 
   while (confirmLength < 10 || confirmLength > 64 || !confirmLength) {
-      alert("Password length must be between 10 and 64 characters Try again");
+      alert("Password length must be between 10 and 64 characters. Try again");
       var confirmLength = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
     } 
 
-    // Repeat back how many charactes the user will have  
+  // Inform user how many characters the password will contain  
     alert(`Your password will have ${confirmLength} characters`);
   
   
@@ -121,17 +122,71 @@ function getPasswordOptions() {
       confirmCharacter = confirm("Will this include special characters?");
       confirmUpperCase = confirm("Will this include Uppercase letters?");
       confirmLowerCase = confirm("Will this include Lowercase letters?");
+
+  // Loop if user choice is outside the parameters 
+        
+    if (!confirmCharacter && !confirmNumber && !confirmUpperCase && !confirmLowerCase) {
+      userChoices = alert("You must choose a criteria!");}
+
+  // If 4 positive options are selected by user
+
+    else if (confirmCharacter && confirmNumber && confirmUpperCase && confirmLowerCase) {
+
+      userChoices = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+  }
+  // If 3 positive options are selected by user
+  else if (confirmCharacter && confirmNumber && confirmUpperCase) {
+      userChoices = specialCharacters.concat(numericCharacters, upperCasedCharacters);
+  }
+  else if (confirmCharacter && confirmNumber && confirmLowerCase) {
+      userChoices = specialCharacters.concat(numericCharacters, lowerCasedCharacters);
+  }
+  else if (confirmCharacter && confirmLowerCase && confirmUpperCase) {
+      userChoices = specialCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
+  }
+  else if (confirmNumber && confirmLowerCase && confirmUpperCase) {
+      userChoices = numericCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
+  }
+  // If 2 positive options are selected by user
+  else if (confirmCharacter && confirmNumber) {
+      userChoices = specialCharacters.concat(numericCharacters);
+
+  } else if (confirmCharacter && confirmLowerCase) {
+      userChoices = specialCharacters.concat(lowerCasedCharacters);
+
+  } else if (confirmCharacter && confirmUpperCase) {
+      userChoices = specialCharacters.concat(upperCasedCharacters);
+  }
+    else if (confirmLowerCase && confirmNumber) {
+      userChoices = lowerCasedCharacters.concat(numericCharacters);
+
+  } else if (confirmLowerCase && confirmUpperCase) {
+      userChoices = lowerCasedCharacters.concat(upperCasedCharacters);
+
+  } else if (confirmNumber && confirmUpperCase) {
+      userChoices = numericCharacters.concat(upperCasedCharacters);
+  }
+  // If 1 positive option is selected by user
+  else if (confirmCharacter) {
+      userChoices = specialCharacters;
+  }
+  else if (confirmNumber) {
+      userChoices = numericCharacters;
+  }
+  else if (confirmLowerCase) {
+      userChoices = lowerCasedCharacters;
+  }
+  else if (confirmUpperCase) {
+      userChoices = upperCasedCharacters;
+  }
+
   };
 
 
 getPasswordOptions();
 // Function for getting a random element from an array
 function getRandom(arr) {
-      // Loop if answer is outside the parameters 
-      // while(confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false) {
-      //   alert("You must choose at least one parameter");
-
-  if (){}
+  
 }
 
 // Function to generate password with user input

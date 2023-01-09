@@ -100,12 +100,7 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
   // Requesting user input
   confirmLength = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
-
-  // Checks user entry and throws an alert if input given is not numeric
-  // while (!confirmLength) {
-  //     alert("This needs a value");
-  //     var confirmLength = parseInt(prompt("How many characters would you like your password to contain?"));
-  // }   
+   
   
   // Loop if answer is outside the parameters 
   while (confirmLength < 10 || confirmLength > 64 || !confirmLength) {
@@ -199,36 +194,21 @@ function getPasswordOptions() {
   }
   console.log("move to next stage of the code");
 
-// // password variable is an array placeholder for user generated amount of length
-// var randomPassword = [];
-
-//   for (var i = 0; i < confirmLength; i++) {
-//     var pickChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
-//     randomPassword.push(pickChoices);
-//     // console.log(pickChoices); 
-//     console.log(randomPassword);
-    
-//   }
-  // var ps = (randomPassword.join(""));
   var ps = getRandom(userChoices,confirmLength);
   console.log (ps);
   UserInput(ps);
   return ps;
 };
 // This puts the password value into the textbox
-// Changed function input to use textcontent
+
 function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 
 };
-// getPasswordOptions();
-
-
-
-
 
 // Function for getting a random element from an array
 function getRandom(userChoices,confirmLength) {
+  
   // password variable is an array placeholder for user generated amount of length
 var randomPassword = [];
 

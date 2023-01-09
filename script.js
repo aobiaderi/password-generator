@@ -4,7 +4,7 @@ var confirmNumber;
 var confirmCharacter;
 var confirmUpperCase;
 var confirmLowerCase;
-var userChoices;
+var userChoices = [];
 
 // Array of special characters to be included in password
 var specialCharacters = [
@@ -133,66 +133,110 @@ function getPasswordOptions() {
     else if (confirmCharacter && confirmNumber && confirmUpperCase && confirmLowerCase) {
 
       userChoices = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+      console.log("user chose 4 options");
   }
+  
+      
   // If 3 positive options are selected by user
   else if (confirmCharacter && confirmNumber && confirmUpperCase) {
       userChoices = specialCharacters.concat(numericCharacters, upperCasedCharacters);
+      console.log("user chose 3a options");
   }
   else if (confirmCharacter && confirmNumber && confirmLowerCase) {
       userChoices = specialCharacters.concat(numericCharacters, lowerCasedCharacters);
+      console.log("user chose 3b options");
   }
   else if (confirmCharacter && confirmLowerCase && confirmUpperCase) {
       userChoices = specialCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
+      console.log("user chose 3c options");
   }
   else if (confirmNumber && confirmLowerCase && confirmUpperCase) {
       userChoices = numericCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
+      console.log("user chose 3d options");
   }
   // If 2 positive options are selected by user
   else if (confirmCharacter && confirmNumber) {
       userChoices = specialCharacters.concat(numericCharacters);
+      console.log("user chose 2a options");
 
   } else if (confirmCharacter && confirmLowerCase) {
       userChoices = specialCharacters.concat(lowerCasedCharacters);
+      console.log("user chose 2b options");
 
   } else if (confirmCharacter && confirmUpperCase) {
       userChoices = specialCharacters.concat(upperCasedCharacters);
+      console.log("user chose 2c options");
   }
     else if (confirmLowerCase && confirmNumber) {
       userChoices = lowerCasedCharacters.concat(numericCharacters);
+      console.log("user chose 2d options");
 
   } else if (confirmLowerCase && confirmUpperCase) {
       userChoices = lowerCasedCharacters.concat(upperCasedCharacters);
+      console.log("user chose 2e options");
 
   } else if (confirmNumber && confirmUpperCase) {
       userChoices = numericCharacters.concat(upperCasedCharacters);
+      console.log("user chose 2f options");
   }
+  
   // If 1 positive option is selected by user
   else if (confirmCharacter) {
       userChoices = specialCharacters;
+      console.log("user chose 1a options");
   }
   else if (confirmNumber) {
       userChoices = numericCharacters;
+      console.log("user chose 1b options");
   }
   else if (confirmLowerCase) {
       userChoices = lowerCasedCharacters;
+      console.log("user chose 1c options");
   }
   else if (confirmUpperCase) {
       userChoices = upperCasedCharacters;
+      console.log("user chose 1d options");
   }
+  console.log("move to next stage of the code");
 
-  };
+// password variable is an array placeholder for user generated amount of length
+var randomPassword = [];
 
+  for (var i = 0; i < confirmLength; i++) {
+    var pickChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
+    randomPassword.push(pickChoices);
+    console.log(pickChoices); 
+    console.log(randomPassword);
+    
+  }
+  var ps = (randomPassword.join(""));
+  UserInput(ps);
+  return ps;
+};
+// This puts the password value into the textbox
+// Changed function input to use textcontent
+function UserInput(ps) {
+  document.getElementById("password").textContent = ps;
 
+};
 getPasswordOptions();
-// Function for getting a random element from an array
-function getRandom(arr) {
-  
-}
 
+// var randomPassword = [];
+
+//   for (var i = 0; i < confirmLength; i++) {
+//     var pickChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
+//     randomPassword.push(pickChoices);
+//     console.log(pickChoices); 
+//   };
+
+// Function for getting a random element from an array
+function getRandom() {
+};
+ 
 // Function to generate password with user input
 function generatePassword() {
-
-}
+  
+  };
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');

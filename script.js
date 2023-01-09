@@ -192,10 +192,10 @@ function getPasswordOptions() {
       userChoices = upperCasedCharacters;
       console.log("user chose 1d options");
   }
-  console.log("move to next stage of the code");
+  // console.log("move to next stage of the code");
 
   var ps = getRandom(userChoices,confirmLength);
-  console.log (ps);
+  // console.log (ps);
   UserInput(ps);
   return ps;
 };
@@ -208,7 +208,7 @@ function UserInput(ps) {
 
 // Function for getting a random element from an array
 function getRandom(userChoices,confirmLength) {
-  
+
   // password variable is an array placeholder for user generated amount of length
 var randomPassword = [];
 
@@ -216,7 +216,7 @@ for (var i = 0; i < confirmLength; i++) {
   var pickChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
   randomPassword.push(pickChoices);
   // console.log(pickChoices); 
-  console.log(randomPassword);
+  // console.log(randomPassword);
   
 }
 return (randomPassword.join(""));

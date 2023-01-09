@@ -99,8 +99,38 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   // Requesting user input
-  confirmLength = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
-   
+  // confirmLength = parseInt(prompt("How many characters do you want your password to have? Choose between 10 and 64"));
+  confirmLength = prompt("How many characters do you want your password to have? Choose between 10 and 64");
+
+  var checker = confirmLength.split("");
+  
+  for (var i = 0; i < specialCharacters.length; i++){
+    
+    if(checker.includes(specialCharacters[i])){
+      alert("Please do not add any special characters. Click the generate password button to try again");
+      // getPasswordOptions();
+      return;
+    }
+  };
+  
+  for (var i = 0; i < upperCasedCharacters.length; i++){
+    
+    if(checker.includes(upperCasedCharacters[i])){
+      alert("Please do not add any uppercased characters.Click the generate password button to try again");
+      // getPasswordOptions();
+      return;
+    }
+  };
+  
+  for (var i = 0; i < lowerCasedCharacters.length; i++){
+    
+    if(checker.includes(lowerCasedCharacters[i])){
+      alert("Please do not add any lowercased characters.Click the generate password button to try again");
+      // getPasswordOptions();
+      return;
+    }
+  };
+  confirmLength = parseInt(confirmLength);
   
   // Loop if answer is outside the parameters 
   while (confirmLength < 10 || confirmLength > 64 || !confirmLength) {
